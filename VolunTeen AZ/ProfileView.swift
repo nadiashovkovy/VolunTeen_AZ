@@ -52,24 +52,18 @@ struct ProfileView: View {
                                             .foregroundColor(.gray)
                                     }
                                 }
-                                    .padding(.trailing, 120)
+                                    .padding(.trailing, 140)
                             )
                         
                         //  General (version)
                         RoundedRectangle(cornerRadius: 10)
                             .foregroundColor(Color.accentColor)
                             .padding()
-                            .frame(minHeight: 80)
+                            .frame(minHeight: 90)
                             .overlay(
-                                HStack {
                                     SettingsRowView(imageName: "gear",
-                                                    title: "Version",
+                                                    title: "Version: 1.0.0",
                                                     tintColor: Color(.systemGray))
-                                    
-                                    Text("1.0.0")
-                                        .font(.subheadline)
-                                        .foregroundColor(.gray)
-                                }
                             )
                         
                         
@@ -77,7 +71,7 @@ struct ProfileView: View {
                         RoundedRectangle(cornerRadius: 10)
                             .foregroundColor(Color.accentColor)
                             .padding()
-                            .frame(minHeight: 80)
+                            .frame(minHeight: 90)
                             .overlay(
                                 Button {
                                     viewModel.signOut()
@@ -89,7 +83,7 @@ struct ProfileView: View {
                         RoundedRectangle(cornerRadius: 10)
                             .foregroundColor(Color.accentColor)
                             .padding()
-                            .frame(minHeight: 80)
+                            .frame(minHeight: 90)
                             .overlay(
                                 Button {
                                         print("Delete account")

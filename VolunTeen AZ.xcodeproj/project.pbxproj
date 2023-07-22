@@ -32,6 +32,9 @@
 		F7A629FC2A6C588300B00459 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = F7A629FB2A6C588300B00459 /* FirebaseStorage */; };
 		F7A62A012A6C592A00B00459 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A62A002A6C592A00B00459 /* AuthViewModel.swift */; };
 		F7A62A032A6C5E9600B00459 /* OpeningAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A62A022A6C5E9600B00459 /* OpeningAppView.swift */; };
+		F7A62A092A6C918E00B00459 /* ActiveNowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A62A082A6C918E00B00459 /* ActiveNowView.swift */; };
+		F7A62A0B2A6C957F00B00459 /* InboxRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A62A0A2A6C957F00B00459 /* InboxRowView.swift */; };
+		F7A62A0E2A6C991200B00459 /* NewMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A62A0D2A6C991200B00459 /* NewMessageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +79,9 @@
 		F7A629F22A6C554900B00459 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		F7A62A002A6C592A00B00459 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		F7A62A022A6C5E9600B00459 /* OpeningAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningAppView.swift; sourceTree = "<group>"; };
+		F7A62A082A6C918E00B00459 /* ActiveNowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveNowView.swift; sourceTree = "<group>"; };
+		F7A62A0A2A6C957F00B00459 /* InboxRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxRowView.swift; sourceTree = "<group>"; };
+		F7A62A0D2A6C991200B00459 /* NewMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,11 +136,12 @@
 		F7A629A42A6A0B4D00B00459 /* VolunTeen AZ */ = {
 			isa = PBXGroup;
 			children = (
-				F7A629E42A6C3A5100B00459 /* Model */,
-				F7A629E32A6C3A4C00B00459 /* Core */,
-				F7A629E22A6C3A3900B00459 /* Components */,
 				F7A629DD2A6C39E800B00459 /* App */,
-				F7A629A52A6A0B4D00B00459 /* VolunTeen_AZApp.swift */,
+				F7A629E32A6C3A4C00B00459 /* Core */,
+				F7A62A052A6C8B7F00B00459 /* Extensions */,
+				F7A629E42A6C3A5100B00459 /* Model */,
+				F7A62A042A6C8B7800B00459 /* Service */,
+				F7A629E22A6C3A3900B00459 /* Components */,
 				F7A62A022A6C5E9600B00459 /* OpeningAppView.swift */,
 				F7A629D12A6A0B8100B00459 /* CustomTabBarView.swift */,
 				F7A629D32A6A0CD600B00459 /* SplashScreenView.swift */,
@@ -178,6 +185,7 @@
 		F7A629DD2A6C39E800B00459 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				F7A629A52A6A0B4D00B00459 /* VolunTeen_AZApp.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -194,8 +202,11 @@
 		F7A629E32A6C3A4C00B00459 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				F7A62A0C2A6C98F200B00459 /* NewMessage */,
+				F7A62A072A6C917100B00459 /* ActiveNow */,
 				F7A629E52A6C3A7B00B00459 /* Root */,
 				F7A629E62A6C3AC500B00459 /* Authentication */,
+				F7A62A062A6C8D1800B00459 /* Inbox */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -218,7 +229,7 @@
 		F7A629E62A6C3AC500B00459 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				F7A629FF2A6C58EF00B00459 /* VViewModels */,
+				F7A629FF2A6C58EF00B00459 /* ViewModels */,
 				F7A629FD2A6C58BB00B00459 /* Views */,
 				F7A629E82A6C3B0F00B00459 /* LoginView.swift */,
 				F7A629EC2A6C41E200B00459 /* RegistrationView.swift */,
@@ -233,12 +244,50 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		F7A629FF2A6C58EF00B00459 /* VViewModels */ = {
+		F7A629FF2A6C58EF00B00459 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
 				F7A62A002A6C592A00B00459 /* AuthViewModel.swift */,
 			);
-			path = VViewModels;
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		F7A62A042A6C8B7800B00459 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		F7A62A052A6C8B7F00B00459 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F7A62A062A6C8D1800B00459 /* Inbox */ = {
+			isa = PBXGroup;
+			children = (
+				F7A62A0A2A6C957F00B00459 /* InboxRowView.swift */,
+			);
+			path = Inbox;
+			sourceTree = "<group>";
+		};
+		F7A62A072A6C917100B00459 /* ActiveNow */ = {
+			isa = PBXGroup;
+			children = (
+				F7A62A082A6C918E00B00459 /* ActiveNowView.swift */,
+			);
+			path = ActiveNow;
+			sourceTree = "<group>";
+		};
+		F7A62A0C2A6C98F200B00459 /* NewMessage */ = {
+			isa = PBXGroup;
+			children = (
+				F7A62A0D2A6C991200B00459 /* NewMessageView.swift */,
+			);
+			path = NewMessage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -388,8 +437,11 @@
 				F7A629D42A6A0CD600B00459 /* SplashScreenView.swift in Sources */,
 				F7A629E92A6C3B0F00B00459 /* LoginView.swift in Sources */,
 				F7A629DC2A6A10CF00B00459 /* MyEventsView.swift in Sources */,
+				F7A62A0B2A6C957F00B00459 /* InboxRowView.swift in Sources */,
 				F7A629A62A6A0B4D00B00459 /* VolunTeen_AZApp.swift in Sources */,
+				F7A62A0E2A6C991200B00459 /* NewMessageView.swift in Sources */,
 				F7A629DA2A6A10BC00B00459 /* ContactView.swift in Sources */,
+				F7A62A092A6C918E00B00459 /* ActiveNowView.swift in Sources */,
 				F7A629EF2A6C4C9900B00459 /* SettingsRowView.swift in Sources */,
 				F7A62A012A6C592A00B00459 /* AuthViewModel.swift in Sources */,
 				F7A629EB2A6C3C2900B00459 /* InputView.swift in Sources */,

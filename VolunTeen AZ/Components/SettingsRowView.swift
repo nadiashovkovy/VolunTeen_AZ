@@ -22,8 +22,10 @@ struct SettingsRowView: View {
             Text(title)
                 .font(.subheadline)
                 .foregroundColor(.black)
+                .frame(maxWidth: UIScreen.main.bounds.width - 100, alignment: .leading)
 
         }
+        
         
     }
 }
