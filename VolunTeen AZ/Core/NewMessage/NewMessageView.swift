@@ -31,7 +31,7 @@ struct NewMessageView: View {
                     VStack {
                         HStack {
                             CircularProfileImage(user: User.MOCK_USER, size: .small)
-
+                            
                             
                             Text("User")
                                 .font(.subheadline)
@@ -50,10 +50,13 @@ struct NewMessageView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Cancel") {
+                    Button(action: {
                         dismiss()
-                    }
+                    }, label: {
+                        Image(systemName: "xmark")
+                    })
                     .foregroundColor(.black)
+                    .fontWeight(.bold)
                 }
         }
         }

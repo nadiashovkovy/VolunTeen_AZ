@@ -1,20 +1,20 @@
 //
-//  AddNewEventView.swift
+//  FilterEventSearchView.swift
 //  VolunTeen AZ
 //
-//  Created by Nadia Shovkovy on 7/22/23.
+//  Created by Nadia Shovkovy on 7/23/23.
 //
 
 import SwiftUI
 
-struct AddNewEventView: View {
+struct FilterEventSearchView: View {
     @Environment(\.dismiss) var dismiss
     var body: some View {
         NavigationStack {
             ScrollView {
-                Text("Add new event!")
+                Text("Filter events based on...")
             }
-            .navigationTitle("Add a Volunteering Event")
+            .navigationTitle("Filter")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -28,11 +28,10 @@ struct AddNewEventView: View {
                 }
             }
         }
-    }
-}
+    }}
 
-struct AddNewEventView_Previews: PreviewProvider {
+struct FilterEventSearchView_Previews: PreviewProvider {
     static var previews: some View {
-        AddNewEventView()
+        FilterEventSearchView()
     }
 }

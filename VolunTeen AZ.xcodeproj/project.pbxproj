@@ -41,6 +41,8 @@
 		F7C02DAB2A6CBCCB0065F155 /* ChatMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C02DAA2A6CBCCB0065F155 /* ChatMessageCell.swift */; };
 		F7C02DAD2A6CC1BA0065F155 /* ChatBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C02DAC2A6CC1BA0065F155 /* ChatBubble.swift */; };
 		F7C02DB12A6CDBCA0065F155 /* AddNewEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C02DB02A6CDBCA0065F155 /* AddNewEventView.swift */; };
+		F7C8F7B22A6D8CC50041AAB5 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C8F7B12A6D8CC50041AAB5 /* SearchBarView.swift */; };
+		F7C8F7B42A6D93E20041AAB5 /* FilterEventSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C8F7B32A6D93E20041AAB5 /* FilterEventSearchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +96,8 @@
 		F7C02DAA2A6CBCCB0065F155 /* ChatMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageCell.swift; sourceTree = "<group>"; };
 		F7C02DAC2A6CC1BA0065F155 /* ChatBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubble.swift; sourceTree = "<group>"; };
 		F7C02DB02A6CDBCA0065F155 /* AddNewEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewEventView.swift; sourceTree = "<group>"; };
+		F7C8F7B12A6D8CC50041AAB5 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		F7C8F7B32A6D93E20041AAB5 /* FilterEventSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterEventSearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +161,7 @@
 				F7A629D12A6A0B8100B00459 /* CustomTabBarView.swift */,
 				F7A629D32A6A0CD600B00459 /* SplashScreenView.swift */,
 				F7A629DB2A6A10CF00B00459 /* MyEventsView.swift */,
+				F7C8F7B32A6D93E20041AAB5 /* FilterEventSearchView.swift */,
 				F7A629D72A6A10AA00B00459 /* MapView.swift */,
 				F7A629CF2A6A0B7600B00459 /* SearchView.swift */,
 				F7C02DB02A6CDBCA0065F155 /* AddNewEventView.swift */,
@@ -208,6 +213,7 @@
 				F7A629EA2A6C3C2900B00459 /* InputView.swift */,
 				F7A629EE2A6C4C9900B00459 /* SettingsRowView.swift */,
 				F7C02DA42A6CB4250065F155 /* CircularProfileImage.swift */,
+				F7C8F7B12A6D8CC50041AAB5 /* SearchBarView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -451,8 +457,10 @@
 				F7C02DB12A6CDBCA0065F155 /* AddNewEventView.swift in Sources */,
 				F7A629F12A6C50F500B00459 /* User.swift in Sources */,
 				F7C02DA22A6CA5600065F155 /* ProfileViewModel.swift in Sources */,
+				F7C8F7B42A6D93E20041AAB5 /* FilterEventSearchView.swift in Sources */,
 				F7A629ED2A6C41E200B00459 /* RegistrationView.swift in Sources */,
 				F7A629D02A6A0B7600B00459 /* SearchView.swift in Sources */,
+				F7C8F7B22A6D8CC50041AAB5 /* SearchBarView.swift in Sources */,
 				F7C02DA82A6CB98B0065F155 /* ChatView.swift in Sources */,
 				F7A629D82A6A10AA00B00459 /* MapView.swift in Sources */,
 				F7A629D42A6A0CD600B00459 /* SplashScreenView.swift in Sources */,
@@ -633,6 +641,7 @@
 				DEVELOPMENT_TEAM = 7V866U6VN4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to show you events near your location.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -662,6 +671,7 @@
 				DEVELOPMENT_TEAM = 7V866U6VN4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to show you events near your location.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -19,7 +19,7 @@ enum ProfileImageSize {
         switch self {
         case.xxSmall: return 28
         case.xSmall: return 32
-        case.small: return 40
+        case.small: return 42
         case.medium: return 56
         case.large: return 64
         case.xLarge: return 72
@@ -40,11 +40,11 @@ struct CircularProfileImage: View {
                 .clipShape(Circle())
         } else {
             Text(user.initials)
-                .font(.title)
+                .font(.title3)
                 .fontWeight(.semibold)
                 .foregroundColor(.white)
                 .frame(width: size.dimension, height: size.dimension)
-                .background(Color(.systemGray3))
+                .background(Color.accentColor)
                 .clipShape(Circle())
         }
     }

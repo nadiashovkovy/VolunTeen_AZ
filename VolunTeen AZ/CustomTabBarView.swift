@@ -15,7 +15,7 @@ struct CustomTabBarView: View {
         "map",
         "magnifyingglass",
         "message",
-        "person"
+        "gear"
     ]
     
     var body: some View {

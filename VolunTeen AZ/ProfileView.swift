@@ -30,7 +30,7 @@ struct ProfileView: View {
                         
                         // User's name and email and pfp
                         RoundedRectangle(cornerRadius: 10)
-                            .foregroundColor(Color.accentColor)
+                            .foregroundColor(Color(UIColor(named: "MyYellow")!))
                             .padding()
                             .frame(minHeight: 130)
                             .overlay(
@@ -46,6 +46,7 @@ struct ProfileView: View {
                                             CircularProfileImage(user: user, size: .xLarge)
                                         }
                                     }
+                                    .padding(.horizontal)
                                     
                                     VStack(alignment: .leading, spacing: 5) {
                                         Text(user.fullName)
@@ -64,7 +65,7 @@ struct ProfileView: View {
                         
                         //  General (version)
                         RoundedRectangle(cornerRadius: 10)
-                            .foregroundColor(Color.accentColor)
+                            .foregroundColor(Color(UIColor(named: "MyYellow")!))
                             .padding()
                             .frame(minHeight: 90)
                             .overlay(
@@ -76,7 +77,7 @@ struct ProfileView: View {
                         
                         // Acount functions (sign out and delete account)
                         RoundedRectangle(cornerRadius: 10)
-                            .foregroundColor(Color.accentColor)
+                            .foregroundColor(Color(UIColor(named: "MyYellow")!))
                             .padding()
                             .frame(minHeight: 90)
                             .overlay(
@@ -88,7 +89,7 @@ struct ProfileView: View {
                                 )
                         
                         RoundedRectangle(cornerRadius: 10)
-                            .foregroundColor(Color.accentColor)
+                            .foregroundColor(Color(UIColor(named: "MyYellow")!))
                             .padding()
                             .frame(minHeight: 90)
                             .overlay(

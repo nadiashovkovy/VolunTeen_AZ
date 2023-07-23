@@ -10,28 +10,30 @@ import SwiftUI
 struct ContactView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     @State private var showNewMessageView = false
-    @State private var user = User.MOCK_USER
+//    @State private var user = User.MOCK_USER
     
     
     var body: some View {
+        if let user = viewModel.currentUser {
             ZStack {
                 
                 NavigationStack {
-                    VStack {
-                        
-                        Text("Chats")
-                            .font(.largeTitle)
-                            .bold()
-                        
-                        Image("TwoRaisedBlobs")
-                            .resizable()
-                            .frame(width:100, height: 100)
-                            .padding(-20)
-                        
-                    }
-                    .padding(.bottom)
                     
                     ScrollView {
+                        VStack {
+                            
+                            Text("Chats")
+                                .font(.largeTitle)
+                                .bold()
+                            
+                            Image("TwoRaisedBlobs")
+                                .resizable()
+                                .frame(width:100, height: 100)
+                                .padding(-20)
+                            
+                        }
+                        .padding(.bottom)
+                        
                         ActiveNowView()
                         
                         List {
@@ -45,15 +47,25 @@ struct ContactView: View {
                     .fullScreenCover(isPresented: $showNewMessageView, content: {
                         NewMessageView()
                     })
-                    .padding(.top)
                     .toolbar {
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            CircularProfileImage(user: user, size: .small)
+                                .padding(.bottom)
+                                .padding(.top)
+                                .padding(.trailing)
+                        }
+                        
                         ToolbarItem(placement: .navigationBarTrailing) {
                             Button {
                                 showNewMessageView.toggle()
                             } label: {
                                 Image(systemName: "square.and.pencil.circle.fill")
                                     .resizable()
-                                    .frame(width: 40, height: 40)
+                                    .frame(width: 42, height: 42)
+                                    .foregroundColor(Color(UIColor(named: "MyPink")!))
+                                    .padding(.bottom)
+                                    .padding(.top)
+                                    .padding(.leading)
                             }
                         }
                     }
@@ -61,6 +73,7 @@ struct ContactView: View {
             }
         }
     }
+}
 
 
 struct ContactView_Previews: PreviewProvider {
