@@ -62,7 +62,7 @@ struct CustomTabBarView: View {
                                         design: .default))
                                 
                             }
-                                .padding(15)
+                            .padding(15)
                                 .frame(width: 75, height: 75)
                                 .foregroundColor(.white)
                                 .background(Color.accentColor)
@@ -84,6 +84,7 @@ struct CustomTabBarView: View {
 
         }
         .background(Color.white)
+        .padding(.bottom, 15)
     }
 }
 

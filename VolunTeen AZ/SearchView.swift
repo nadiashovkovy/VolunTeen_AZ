@@ -10,11 +10,12 @@ import SwiftUI
 struct SearchView: View {
     
     @State private var searchText = ""
+    @State private var showAddNewEventView = false
     
     var body: some View {
         ZStack {
             VStack {
-                Text("Search Events")
+                Text("Search or Add Events")
                     .font(.largeTitle)
                     .bold()
                 
@@ -27,8 +28,20 @@ struct SearchView: View {
                     Text("Searching for \(searchText)")
                 }
                 .searchable(text: $searchText)
+                .fullScreenCover(isPresented: $showAddNewEventView, content: {
+                    AddNewEventView()
+                })
                 
-                Spacer()
+                Button {
+                    showAddNewEventView.toggle()
+                } label: {
+                    Image(systemName: "plus.circle.fill")
+                        .resizable()
+                        .frame(width: 72, height: 72)
+                        .foregroundColor(Color(UIColor(named: "MyPink")!))
+                        .padding(.bottom, 100)
+                        
+                }
             }
         }
     }

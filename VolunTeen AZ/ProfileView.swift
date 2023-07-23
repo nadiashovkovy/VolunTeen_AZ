@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct ProfileView: View {
     @EnvironmentObject var viewModel: AuthViewModel
+    
+    @StateObject var profileViewModel = ProfileViewModel()
     
     var body: some View {
         if let user = viewModel.currentUser {
@@ -32,13 +35,17 @@ struct ProfileView: View {
                             .frame(minHeight: 130)
                             .overlay(
                                 HStack {
-                                    Text(user.initials)
-                                        .font(.title)
-                                        .fontWeight(.semibold)
-                                        .foregroundColor(.white)
-                                        .frame(width: 72, height: 72)
-                                        .background(Color(.systemGray3))
-                                        .clipShape(Circle())
+                                    PhotosPicker(selection: $profileViewModel.selectedItem) {
+                                        if let profileImage = profileViewModel.profileImage {
+                                            profileImage
+                                                .resizable()
+                                                .scaledToFill()
+                                                .frame(width: 72, height: 72)
+                                                .clipShape(Circle())
+                                        } else {
+                                            CircularProfileImage(user: user, size: .xLarge)
+                                        }
+                                    }
                                     
                                     VStack(alignment: .leading, spacing: 5) {
                                         Text(user.fullName)
@@ -93,9 +100,9 @@ struct ProfileView: View {
                                 )
                         
                         }
-                        Spacer()
-                    }
+                Spacer()
                 }
+            }
         }
     }
 }
@@ -103,6 +110,7 @@ struct ProfileView: View {
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView()
+        ProfileView().environmentObject(AuthViewModel())
     }
 }
+
