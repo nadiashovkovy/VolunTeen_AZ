@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct MyEventsView: View {
+    @EnvironmentObject var viewModel: AuthViewModel
 
     var body: some View {
+        if let user = viewModel.currentUser {
             ZStack {
                 VStack {
                     ScrollView {
@@ -85,6 +87,15 @@ struct MyEventsView: View {
                         
                         
                         Spacer()
+                    }
+//                    .toolbar {
+//                        ToolbarItem(placement: .navigationBarLeading) {
+//                            CircularProfileImage(user: user, size: .small)
+//                                .padding(.bottom)
+//                                .padding(.top)
+//                                .padding(.trailing)
+//                        }
+//                    }
                 }
             }
         }

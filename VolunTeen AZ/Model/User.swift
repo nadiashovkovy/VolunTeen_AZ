@@ -6,13 +6,19 @@
 //
 
 import Foundation
+import FirebaseFirestoreSwift
 
 
-struct User: Identifiable, Codable {
-    let id: String
+struct User: Codable, Identifiable, Hashable  {
+    @DocumentID var uid: String?
     let fullName: String
     let email: String
     var profileImageUrl: String?
+    
+    var id: String {
+        return uid ?? NSUUID().uuidString
+    }
+    
     
     var initials: String {
         let formatter = PersonNameComponentsFormatter()
@@ -23,8 +29,17 @@ struct User: Identifiable, Codable {
         
         return ""
     }
+    
+    var firstName: String {
+        let formatter = PersonNameComponentsFormatter()
+        let components = formatter.personNameComponents(from: fullName)
+        return components?.givenName ?? fullName
+    }
+    
+    
+    
 }
 
 extension User {
-    static var MOCK_USER = User(id: NSUUID().uuidString, fullName: "Olivia Shovkovy", email: "oliviatest@gmail.com", profileImageUrl: "CloudBlob")
+    static let MOCK_USER = User(fullName: "Olivia Shovkovy", email: "oliviatest@gmail.com", profileImageUrl: "CloudBlob")
 }

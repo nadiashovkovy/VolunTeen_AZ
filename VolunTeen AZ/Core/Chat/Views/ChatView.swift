@@ -8,17 +8,25 @@
 import SwiftUI
 
 struct ChatView: View {
-    @State private var messageText = ""
+    @StateObject var viewModel: ChatViewModel
+    let user: User
+    
+    
+    init (user: User) {
+        self.user = user
+        self._viewModel = StateObject(wrappedValue: ChatViewModel(user: user))
+    }
+    
     var body: some View {
         VStack {
             ScrollView {
                 // header
                 
                 VStack {
-                    CircularProfileImage(user: User.MOCK_USER, size: .xLarge)
+                    CircularProfileImage(user: user, size: .xLarge)
                     
                     VStack(spacing: 4) {
-                        Text("Olivia Shovkovy")
+                        Text(user.fullName)
                             .font(.title3)
                             .fontWeight(.semibold)
                         
@@ -30,8 +38,8 @@ struct ChatView: View {
                 }
                                 
                 // messages
-                ForEach(0 ... 15, id: \.self) { message in
-                    ChatMessageCell(isFromCurrentUser: Bool.random())
+                ForEach(viewModel.messages) { message in
+                    ChatMessageCell(message: message)
                 }
             }
             
@@ -40,21 +48,25 @@ struct ChatView: View {
             Spacer()
             
             ZStack(alignment: .trailing) {
-                TextField("Message...", text: $messageText, axis: .vertical)
+                TextField("Message...", text: $viewModel.messageText, axis: .vertical)
                     .padding(12)
                     .padding(.trailing, 48)
                     .background(Color(.systemGroupedBackground))
                     .clipShape(Capsule())
                     .font(.subheadline)
+                    .padding(.bottom, 12)
                 
                 Button {
-                    print("Send message")
+                    viewModel.sendMessage()
+                    viewModel.messageText = ""
                 } label: {
                     Text("Send")
                         .fontWeight(.semibold)
                         .foregroundColor(Color(.systemBlue))
+                        
                 }
                 .padding(.horizontal)
+                .padding(.bottom, 12)
 
             }
             .padding(.horizontal)
@@ -64,6 +76,6 @@ struct ChatView: View {
 
 struct ChatView_Previews: PreviewProvider {
     static var previews: some View {
-        ChatView()
+        ChatView(user: User.MOCK_USER)
     }
 }

@@ -18,7 +18,7 @@ struct SearchView: View {
             ScrollView {
                 ZStack {
                     VStack {
-                        Text("Search or Add an Event")
+                        Text("Search or Add Event")
                             .font(.largeTitle)
                             .bold()
                         

@@ -13,6 +13,7 @@ struct FilterEventSearchView: View {
         NavigationStack {
             ScrollView {
                 Text("Filter events based on...")
+                    .font(.subheadline)
             }
             .navigationTitle("Filter")
             .navigationBarTitleDisplayMode(.inline)
