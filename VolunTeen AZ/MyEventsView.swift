@@ -8,14 +8,19 @@
 import SwiftUI
 
 struct MyEventsView: View {
-    @EnvironmentObject var viewModel: AuthViewModel
+    
+    // user auth
+    @StateObject var viewModel = AuthViewModel()
+    @State private var selectedUser: User?
+    private var user: User? {
+        return viewModel.currentUser
+    }
 
     var body: some View {
-        if let user = viewModel.currentUser {
-            ZStack {
+            NavigationStack {
                 VStack {
                     ScrollView {
-                        Text("VolunTeen: Arizona")
+                        Text("VolunTeen")
                             .font(.largeTitle)
                             .bold()
                         
@@ -24,6 +29,12 @@ struct MyEventsView: View {
                             .frame(width:200, height: 100)
                             .padding(.top, -20)
                         
+                        
+                        
+                        // the events start here
+                        
+                        VStack(spacing: -5) {
+                            
                         Text("Upcoming Events")
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .font(.title2)
@@ -40,12 +51,16 @@ struct MyEventsView: View {
                                         .frame(width: 360, height: 150)
                                         .background(Color(UIColor(named: "MyYellow")!))
                                         .cornerRadius(10)
+                                        .padding(.bottom, 25)
                                 }
                             }
                         }
                         .padding()
                         
-                        Text("All Saved")
+                        
+                        
+                        
+                        Text("Saved")
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .font(.title2)
                             .bold()
@@ -60,10 +75,14 @@ struct MyEventsView: View {
                                         .frame(width: 360, height: 150)
                                         .background(Color(UIColor(named: "MyYellow")!))
                                         .cornerRadius(10)
+                                        .padding(.bottom, 25)
                                 }
                             }
                         }
                         .padding()
+                        
+                        
+                        
                         
                         Text("Reccomended")
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -80,25 +99,55 @@ struct MyEventsView: View {
                                         .frame(width: 360, height: 150)
                                         .background(Color(UIColor(named: "MyYellow")!))
                                         .cornerRadius(10)
+                                        .padding(.bottom, 25)
                                 }
                             }
                         }
                         .padding()
                         
                         
-                        Spacer()
+                        
+                        
+                        Text("Events I've Shared")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .font(.title2)
+                            .bold()
+                            .padding(.horizontal)
+                        
+                        ScrollView(.horizontal) {
+                            HStack(spacing: 20) {
+                                ForEach(0..<10) {
+                                    Text("Event \($0)")
+                                        .foregroundStyle(.white)
+                                        .font(.largeTitle)
+                                        .frame(width: 360, height: 150)
+                                        .background(Color(UIColor(named: "MyYellow")!))
+                                        .cornerRadius(10)
+                                        .padding(.bottom, 25)
+                                }
+                            }
+                        }
+                        .padding()
+                        
+                        }
                     }
-//                    .toolbar {
-//                        ToolbarItem(placement: .navigationBarLeading) {
-//                            CircularProfileImage(user: user, size: .small)
-//                                .padding(.bottom)
-//                                .padding(.top)
-//                                .padding(.trailing)
-//                        }
-//                    }
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            NavigationLink {
+                                ProfileView()
+                                    .navigationBarBackButtonHidden(true)
+                            } label: {
+                                CircularProfileImage(user: user, size: .small)
+                                    .navigationBarBackButtonHidden(true)
+                                    .padding(.bottom)
+                                    .padding(.top)
+                                    .padding(.trailing)
+                            }
+                               
+                        }
+                    }
                 }
             }
-        }
     }
 }
 

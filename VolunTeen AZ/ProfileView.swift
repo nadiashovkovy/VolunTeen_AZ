@@ -15,7 +15,7 @@ struct ProfileView: View {
     
     var body: some View {
         if let user = viewModel.currentUser {
-            ZStack {
+            NavigationStack {
                 ScrollView {
                     VStack {
                         Text("Profile")
@@ -102,6 +102,20 @@ struct ProfileView: View {
                         
                         }
                 Spacer()
+                }
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        NavigationLink {
+                            ProfileView()
+                                .navigationBarBackButtonHidden(true)
+                        } label: {
+                            CircularProfileImage(user: user, size: .small)
+                                .navigationBarBackButtonHidden(true)
+                                .padding(.bottom)
+                                .padding(.top)
+                                .padding(.trailing)
+                        }
+                    }
                 }
             }
         }

@@ -12,9 +12,9 @@ struct AddNewEventView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                Text("Add new event!")
+                Text("Share a volunteering event...")
             }
-            .navigationTitle("Add a Volunteering Event")
+            .navigationTitle("Add a New Event")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {

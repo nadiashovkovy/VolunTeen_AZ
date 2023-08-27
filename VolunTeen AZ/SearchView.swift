@@ -13,12 +13,20 @@ struct SearchView: View {
     @State private var showAddNewEventView = false
     @State private var showFilterSearchView = false
     
+    
+    // user auth
+    @StateObject var viewModel = AuthViewModel()
+    @State private var selectedUser: User?
+    private var user: User? {
+        return viewModel.currentUser
+    }
+    
     var body: some View {
         NavigationStack {
             ScrollView {
                 ZStack {
                     VStack {
-                        Text("Search or Add Event")
+                        Text("Explore")
                             .font(.largeTitle)
                             .bold()
                         
@@ -58,17 +66,29 @@ struct SearchView: View {
                FilterEventSearchView()
             })
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        showAddNewEventView.toggle()
+                ToolbarItem(placement: .navigationBarLeading) {
+                    NavigationLink {
+                        ProfileView()
+                            .navigationBarBackButtonHidden(true)
                     } label: {
-                        Image(systemName: "plus.circle.fill")
-                            .resizable()
-                            .frame(width: 42, height: 42)
-                            .foregroundColor(Color(UIColor(named: "MyPink")!))
+                        CircularProfileImage(user: user, size: .small)
+                            .navigationBarBackButtonHidden(true)
                             .padding(.bottom)
                             .padding(.top)
-                            .padding(.leading)
+                            .padding(.trailing)
+                    }
+                }
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            showAddNewEventView.toggle()
+                        } label: {
+                            Image(systemName: "plus.circle.fill")
+                                .resizable()
+                                .frame(width: 42, height: 42)
+                                .foregroundColor(Color(UIColor(named: "MyPink")!))
+                                .padding(.bottom)
+                                .padding(.top)
+                                .padding(.leading)
                     }
                 }
             }

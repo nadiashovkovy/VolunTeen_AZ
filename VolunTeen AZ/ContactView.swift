@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContactView: View {
-//    @EnvironmentObject var viewModel: AuthViewModel
+
     @State private var showNewMessageView = false
     @StateObject var viewModel = InboxViewModel()
     @State private var selectedUser: User?
@@ -71,10 +71,17 @@ struct ContactView: View {
                     })
                     .toolbar {
                         ToolbarItem(placement: .navigationBarLeading) {
-                            CircularProfileImage(user: user, size: .small)
-                                .padding(.bottom)
-                                .padding(.top)
-                                .padding(.trailing)
+                            
+                            NavigationLink {
+                                ProfileView()
+                                    .navigationBarBackButtonHidden(true)
+                            } label: {
+                                CircularProfileImage(user: user, size: .small)
+                                    .navigationBarBackButtonHidden(true)
+                                    .padding(.bottom)
+                                    .padding(.top)
+                                    .padding(.trailing)
+                            }
                         }
                         
                         ToolbarItem(placement: .navigationBarTrailing) {
@@ -102,3 +109,8 @@ struct ContactView_Previews: PreviewProvider {
         ContactView()
     }
 }
+
+
+
+
+
