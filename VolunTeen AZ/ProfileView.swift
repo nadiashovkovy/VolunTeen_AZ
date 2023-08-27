@@ -9,11 +9,12 @@ import SwiftUI
 import PhotosUI
 
 struct ProfileView: View {
-    @EnvironmentObject var viewModel: AuthViewModel
     
-    @StateObject var profileViewModel = ProfileViewModel()
+    // user auth
+    @StateObject var viewModel = AuthViewModel()
     
     var body: some View {
+        
         if let user = viewModel.currentUser {
             NavigationStack {
                 ScrollView {
@@ -35,13 +36,17 @@ struct ProfileView: View {
                             .frame(minHeight: 130)
                             .overlay(
                                 HStack {
-                                    PhotosPicker(selection: $profileViewModel.selectedItem) {
-                                        if let profileImage = profileViewModel.profileImage {
+                                    PhotosPicker(selection: $viewModel.selectedItem) {
+                                        if let profileImage = viewModel.profileImage {
+ 
                                             profileImage
                                                 .resizable()
                                                 .scaledToFill()
                                                 .frame(width: 72, height: 72)
                                                 .clipShape(Circle())
+                                                
+                                            
+                                            
                                         } else {
                                             CircularProfileImage(user: user, size: .xLarge)
                                         }
@@ -69,9 +74,9 @@ struct ProfileView: View {
                             .padding()
                             .frame(minHeight: 90)
                             .overlay(
-                                    SettingsRowView(imageName: "gear",
-                                                    title: "Version: 1.0.0",
-                                                    tintColor: Color(.systemGray))
+                                SettingsRowView(imageName: "gear",
+                                                title: "Version: 1.0.0",
+                                                tintColor: Color(.systemGray))
                             )
                         
                         
@@ -83,10 +88,10 @@ struct ProfileView: View {
                             .overlay(
                                 Button {
                                     viewModel.signOut()
-                                        } label: {
-                                        SettingsRowView(imageName: "arrow.left.circle.fill", title: "Sign out", tintColor:  Color(.systemGray))
-                                        }
-                                )
+                                } label: {
+                                    SettingsRowView(imageName: "arrow.left.circle.fill", title: "Sign out", tintColor:  Color(.systemGray))
+                                }
+                            )
                         
                         RoundedRectangle(cornerRadius: 10)
                             .foregroundColor(Color(UIColor(named: "MyYellow")!))
@@ -94,14 +99,14 @@ struct ProfileView: View {
                             .frame(minHeight: 90)
                             .overlay(
                                 Button {
-                                        print("Delete account")
-                                        } label: {
-                                        SettingsRowView(imageName: "xmark.circle.fill", title: "Delete account", tintColor:  Color(.systemGray))
-                                        }
-                                )
+                                    print("Delete account")
+                                } label: {
+                                    SettingsRowView(imageName: "xmark.circle.fill", title: "Delete account", tintColor:  Color(.systemGray))
+                                }
+                            )
                         
-                        }
-                Spacer()
+                    }
+                    Spacer()
                 }
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
@@ -109,11 +114,19 @@ struct ProfileView: View {
                             ProfileView()
                                 .navigationBarBackButtonHidden(true)
                         } label: {
-                            CircularProfileImage(user: user, size: .small)
-                                .navigationBarBackButtonHidden(true)
-                                .padding(.bottom)
-                                .padding(.top)
-                                .padding(.trailing)
+                            if let profileImage = viewModel.profileImage {
+                                profileImage
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 42, height: 42)
+                                    .clipShape(Circle())
+                            } else {
+                                CircularProfileImage(user: user, size: .small)
+                                    .navigationBarBackButtonHidden(true)
+                                    .padding(.bottom)
+                                    .padding(.top)
+                                    .padding(.trailing)
+                            }
                         }
                     }
                 }
@@ -125,7 +138,7 @@ struct ProfileView: View {
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView().environmentObject(AuthViewModel())
+        ProfileView()
     }
 }
 
