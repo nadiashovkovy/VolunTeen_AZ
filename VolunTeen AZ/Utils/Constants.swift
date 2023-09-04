@@ -12,5 +12,6 @@ struct FirestoreConstants {
     
     static let UsersCollection = Firestore.firestore().collection("users")
     static let MessagesCollection = Firestore.firestore().collection("messages")
+    static let EventsCollection = Firestore.firestore().collection("events")
     
 }

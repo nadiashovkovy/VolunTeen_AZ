@@ -16,6 +16,10 @@
 		F71F0FCE2A7EF6D8000A29E9 /* InboxService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71F0FCD2A7EF6D8000A29E9 /* InboxService.swift */; };
 		F71F0FD02A7F081F000A29E9 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71F0FCF2A7F081F000A29E9 /* Date.swift */; };
 		F71F0FD32A7F0B37000A29E9 /* ActiveNowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71F0FD22A7F0B37000A29E9 /* ActiveNowViewModel.swift */; };
+		F77827D42AA535FF007DF232 /* EventService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77827D32AA535FF007DF232 /* EventService.swift */; };
+		F77827D62AA541CA007DF232 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77827D52AA541CA007DF232 /* Event.swift */; };
+		F77827D82AA544E8007DF232 /* EventRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77827D72AA544E8007DF232 /* EventRowView.swift */; };
+		F77827DA2AA57E3A007DF232 /* MyEventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77827D92AA57E3A007DF232 /* MyEventsViewModel.swift */; };
 		F7A629A62A6A0B4D00B00459 /* VolunTeen_AZApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A629A52A6A0B4D00B00459 /* VolunTeen_AZApp.swift */; };
 		F7A629AA2A6A0B4E00B00459 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7A629A92A6A0B4E00B00459 /* Assets.xcassets */; };
 		F7A629AD2A6A0B4E00B00459 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7A629AC2A6A0B4E00B00459 /* Preview Assets.xcassets */; };
@@ -84,6 +88,10 @@
 		F71F0FCD2A7EF6D8000A29E9 /* InboxService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxService.swift; sourceTree = "<group>"; };
 		F71F0FCF2A7F081F000A29E9 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		F71F0FD22A7F0B37000A29E9 /* ActiveNowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveNowViewModel.swift; sourceTree = "<group>"; };
+		F77827D32AA535FF007DF232 /* EventService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventService.swift; sourceTree = "<group>"; };
+		F77827D52AA541CA007DF232 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		F77827D72AA544E8007DF232 /* EventRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRowView.swift; sourceTree = "<group>"; };
+		F77827D92AA57E3A007DF232 /* MyEventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEventsViewModel.swift; sourceTree = "<group>"; };
 		F7A629A22A6A0B4D00B00459 /* VolunTeen AZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VolunTeen AZ.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7A629A52A6A0B4D00B00459 /* VolunTeen_AZApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunTeen_AZApp.swift; sourceTree = "<group>"; };
 		F7A629A92A6A0B4E00B00459 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -307,6 +315,7 @@
 				F7C02DA42A6CB4250065F155 /* CircularProfileImage.swift */,
 				F7C8F7B12A6D8CC50041AAB5 /* SearchBarView.swift */,
 				F7B9F5CC2A9ACACF0051C485 /* CategoryFilterView.swift */,
+				F77827D72AA544E8007DF232 /* EventRowView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -318,6 +327,7 @@
 				F7A62A0C2A6C98F200B00459 /* NewMessage */,
 				F7A62A072A6C917100B00459 /* ActiveNow */,
 				F7A629E52A6C3A7B00B00459 /* Root */,
+				F7A629FF2A6C58EF00B00459 /* ViewModels */,
 				F7A629E62A6C3AC500B00459 /* Authentication */,
 				F7A62A062A6C8D1800B00459 /* Inbox */,
 			);
@@ -329,6 +339,7 @@
 			children = (
 				F7A629F02A6C50F500B00459 /* User.swift */,
 				F71F0FBE2A772967000A29E9 /* Message.swift */,
+				F77827D52AA541CA007DF232 /* Event.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -343,7 +354,6 @@
 		F7A629E62A6C3AC500B00459 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				F7A629FF2A6C58EF00B00459 /* ViewModels */,
 				F7A629E82A6C3B0F00B00459 /* LoginView.swift */,
 				F7A629EC2A6C41E200B00459 /* RegistrationView.swift */,
 			);
@@ -363,6 +373,8 @@
 			children = (
 				F7A62A002A6C592A00B00459 /* AuthViewModel.swift */,
 				F7C02DA12A6CA5600065F155 /* ProfileViewModel.swift */,
+				F7D89CDE2A770FB600D818AB /* InboxViewModel.swift */,
+				F77827D92AA57E3A007DF232 /* MyEventsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -416,7 +428,6 @@
 		F7D89CDD2A770F4700D818AB /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				F7D89CDE2A770FB600D818AB /* InboxViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -426,6 +437,7 @@
 			children = (
 				F7D89CE12A77114000D818AB /* UserService.swift */,
 				F71F0FC02A772C13000A29E9 /* MessageService.swift */,
+				F77827D32AA535FF007DF232 /* EventService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -571,6 +583,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7D89CE22A77114000D818AB /* UserService.swift in Sources */,
+				F77827DA2AA57E3A007DF232 /* MyEventsViewModel.swift in Sources */,
 				F7C02DB12A6CDBCA0065F155 /* AddNewEventView.swift in Sources */,
 				F7A629F12A6C50F500B00459 /* User.swift in Sources */,
 				F7C02DA22A6CA5600065F155 /* ProfileViewModel.swift in Sources */,
@@ -594,6 +607,8 @@
 				F71F0FC12A772C13000A29E9 /* MessageService.swift in Sources */,
 				F7A62A0B2A6C957F00B00459 /* InboxRowView.swift in Sources */,
 				F7A629A62A6A0B4D00B00459 /* VolunTeen_AZApp.swift in Sources */,
+				F77827D62AA541CA007DF232 /* Event.swift in Sources */,
+				F77827D42AA535FF007DF232 /* EventService.swift in Sources */,
 				F7A62A0E2A6C991200B00459 /* NewMessageView.swift in Sources */,
 				F7A629DA2A6A10BC00B00459 /* ContactView.swift in Sources */,
 				F7A62A092A6C918E00B00459 /* ActiveNowView.swift in Sources */,
@@ -606,6 +621,7 @@
 				F7D89CDF2A770FB600D818AB /* InboxViewModel.swift in Sources */,
 				F71F0FBF2A772967000A29E9 /* Message.swift in Sources */,
 				F7A62A032A6C5E9600B00459 /* OpeningAppView.swift in Sources */,
+				F77827D82AA544E8007DF232 /* EventRowView.swift in Sources */,
 				F7A629D22A6A0B8100B00459 /* CustomTabBarView.swift in Sources */,
 				F71F0FC82A7EF08E000A29E9 /* ChatService.swift in Sources */,
 			);

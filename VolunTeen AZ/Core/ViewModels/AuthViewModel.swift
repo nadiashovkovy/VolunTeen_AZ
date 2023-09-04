@@ -21,8 +21,9 @@ protocol AuthenticationFormProtocol {
 class AuthViewModel: ObservableObject {
     @Published var userSession: FirebaseAuth.User?
     @Published var currentUser: User?
+    @Published var didUploadEvent = false
     
-    
+
     
     @Published var selectedItem: PhotosPickerItem? {
         didSet { Task { try await loadImage() } }
@@ -41,14 +42,12 @@ class AuthViewModel: ObservableObject {
     
     init() {
         self.userSession = Auth.auth().currentUser
-        
+
         Task {
             await fetchUser()
         }
     }
-    
-    
-    
+
     
     func signIn(withEmail email: String, password: String) async throws {
         do {
@@ -59,6 +58,20 @@ class AuthViewModel: ObservableObject {
             print("DEBUG: Failed to log in with error \(error.localizedDescription)")
         }
     }
+    
+    func uploadEvent(withEventTitle eventTitle: String, eventDescription: String, eventDate: String, eventStartTime: String, eventEndTime: String, eventLocation: String) {
+        let service = EventService()
+        do {
+            service.uploadEvent(eventTitle: eventTitle, eventDescription: eventDescription, eventDate: eventDate, eventStartTime: eventStartTime, eventEndTime: eventEndTime, eventLocation: eventLocation) { success in
+                if success {
+                    self.didUploadEvent = true
+                } else {
+                    // show error message to the user
+                }
+            }
+        }
+    }
+
     
     func createUser(withEmail email: String, password: String, fullName: String) async throws {
         do {

@@ -69,6 +69,8 @@ struct LoginView: View {
                     .font(.system(size: 14))
                     .foregroundColor(.black)
                 }
+                
+                
 
             }
         }

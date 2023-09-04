@@ -54,7 +54,7 @@ struct SearchView: View {
                         Image("ArizonaState")
                             .resizable()
                             .frame(width: 300, height: 300)
-                            .padding(.top, 100)
+                            .padding(.top, 60)
                     }
                     Spacer()
                 }
